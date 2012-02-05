@@ -48,7 +48,7 @@
 #pragma mark - Properties
 - (NSArray *)cardViewControllers
 {
-	return nil;
+	return self.childViewControllers;
 }
 
 
