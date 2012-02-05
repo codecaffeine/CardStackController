@@ -21,7 +21,6 @@
 		C942DA9614DED00C000ABD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7C14DED00C000ABD09 /* UIKit.framework */; };
 		C942DA9714DED00C000ABD09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7E14DED00C000ABD09 /* Foundation.framework */; };
 		C942DA9F14DED00C000ABD09 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C942DA9D14DED00C000ABD09 /* InfoPlist.strings */; };
-		C942DAA214DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +56,6 @@
 		C942DA9414DED00C000ABD09 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C942DA9C14DED00C000ABD09 /* Card Stack Controller DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card Stack Controller DemoTests-Info.plist"; sourceTree = "<group>"; };
 		C942DA9E14DED00C000ABD09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card_Stack_Controller_DemoTests.h; sourceTree = "<group>"; };
-		C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card_Stack_Controller_DemoTests.m; sourceTree = "<group>"; };
 		C942DAAB14DED125000ABD09 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,8 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				C942DA9B14DED00C000ABD09 /* Supporting Files */,
-				C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */,
-				C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */,
 				C932854E14DF049300DF5ACA /* CAFCardStackControllerTests.h */,
 				C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */,
 			);
@@ -292,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C942DAA214DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m in Sources */,
 				C932855014DF049300DF5ACA /* CAFCardStackControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
