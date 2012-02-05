@@ -55,7 +55,9 @@
 #pragma mark - Instance Methods
 - (void)addCardViewController:(UIViewController *)viewController
 {
+	[self addChildViewController:viewController];
 	
+	[viewController didMoveToParentViewController:self];
 }
 
 
