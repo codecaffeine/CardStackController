@@ -45,11 +45,15 @@
 	CAFCardStackController *cardStackController = [[CAFCardStackController alloc] init];
 	CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
 	[cardStackController addCardViewController:randomColorViewController];
-	STAssertEquals(randomColorViewController.view.superview, 
-				   cardStackController.view, 
+	
+	// Test Hierarchy
+	UIView *randomColorView = randomColorViewController.view;
+	UIView *cardStackView = cardStackController.view;
+	STAssertEquals(randomColorView.superview, 
+				   cardStackView, 
 				   @"added view %@ not in view hierarchy: %@", 
-				   randomColorViewController.view, 
-				   cardStackController.view.subviews);
+				   randomColorView, 
+				   cardStackView.subviews);
 }
 
 @end
