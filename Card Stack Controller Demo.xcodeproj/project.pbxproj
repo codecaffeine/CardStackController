@@ -393,8 +393,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Card Stack Controller Demo/Card Stack Controller Demo-Prefix.pch";
-				INFOPLIST_FILE = "Card Stack Controller DemoTests/Card Stack Controller DemoTests-Info.plist";
+				GCC_PREFIX_HEADER = "App/Card Stack Controller Demo-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Card Stack Controller DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -410,8 +410,8 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Card Stack Controller Demo/Card Stack Controller Demo-Prefix.pch";
-				INFOPLIST_FILE = "Card Stack Controller DemoTests/Card Stack Controller DemoTests-Info.plist";
+				GCC_PREFIX_HEADER = "App/Card Stack Controller Demo-Prefix.pch";
+				INFOPLIST_FILE = "Tests/Card Stack Controller DemoTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
