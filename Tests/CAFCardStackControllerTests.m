@@ -32,11 +32,24 @@
 				 @"contains %d objects", 
 				 [cardStackController.cardViewControllers count]);
 	UIViewController *viewController = [cardStackController.cardViewControllers objectAtIndex:0];
-	STAssertEqualObjects(randomColorViewController, 
-						 viewController, 
-						 @"%@ differs from %@", 
-						 randomColorViewController, 
-						 viewController);
+	STAssertEquals(randomColorViewController, 
+				   viewController, 
+				   @"%@ differs from %@", 
+				   randomColorViewController, 
+				   viewController);
+}
+
+
+- (void)testAddCardViewControllerAddsSubviewToView
+{
+	CAFCardStackController *cardStackController = [[CAFCardStackController alloc] init];
+	CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
+	[cardStackController addCardViewController:randomColorViewController];
+	STAssertEquals(randomColorViewController.view.superview, 
+				   cardStackController.view, 
+				   @"added view %@ not in view hierarchy: %@", 
+				   randomColorViewController.view, 
+				   cardStackController.view.subviews);
 }
 
 @end
