@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C932854C14DEE32B00DF5ACA /* CAFCardStackController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */; };
 		C932854D14DEE32B00DF5ACA /* CAFCardStackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */; };
+		C932855014DF049300DF5ACA /* CAFCardStackControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */; };
 		C942DA7D14DED00C000ABD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7C14DED00C000ABD09 /* UIKit.framework */; };
 		C942DA7F14DED00C000ABD09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7E14DED00C000ABD09 /* Foundation.framework */; };
 		C942DA8114DED00C000ABD09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA8014DED00C000ABD09 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 		C932854914DEE32B00DF5ACA /* CAFCardStackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCardStackController.h; sourceTree = "<group>"; };
 		C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackController.m; sourceTree = "<group>"; };
 		C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFCardStackController.xib; sourceTree = "<group>"; };
+		C932854E14DF049300DF5ACA /* CAFCardStackControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCardStackControllerTests.h; sourceTree = "<group>"; };
+		C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackControllerTests.m; sourceTree = "<group>"; };
 		C942DA7814DED00C000ABD09 /* Card Stack Controller Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Stack Controller Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942DA7C14DED00C000ABD09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C942DA7E14DED00C000ABD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,8 @@
 				C942DA9B14DED00C000ABD09 /* Supporting Files */,
 				C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */,
 				C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */,
+				C932854E14DF049300DF5ACA /* CAFCardStackControllerTests.h */,
+				C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C942DAA214DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m in Sources */,
+				C932855014DF049300DF5ACA /* CAFCardStackControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
