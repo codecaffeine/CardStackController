@@ -11,6 +11,9 @@
 		C932854D14DEE32B00DF5ACA /* CAFCardStackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */; };
 		C932855014DF049300DF5ACA /* CAFCardStackControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */; };
 		C932855314DF06E300DF5ACA /* CAFRandomColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932855214DF06E300DF5ACA /* CAFRandomColorViewController.m */; };
+		C932855414DF151B00DF5ACA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA8014DED00C000ABD09 /* CoreGraphics.framework */; };
+		C932855614DF153600DF5ACA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C932855514DF153600DF5ACA /* QuartzCore.framework */; };
+		C932855714DF155100DF5ACA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C932855514DF153600DF5ACA /* QuartzCore.framework */; };
 		C942DA7D14DED00C000ABD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7C14DED00C000ABD09 /* UIKit.framework */; };
 		C942DA7F14DED00C000ABD09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7E14DED00C000ABD09 /* Foundation.framework */; };
 		C942DA8114DED00C000ABD09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA8014DED00C000ABD09 /* CoreGraphics.framework */; };
@@ -42,6 +45,7 @@
 		C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackControllerTests.m; sourceTree = "<group>"; };
 		C932855114DF06E300DF5ACA /* CAFRandomColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CAFRandomColorViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C932855214DF06E300DF5ACA /* CAFRandomColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CAFRandomColorViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		C932855514DF153600DF5ACA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C942DA7814DED00C000ABD09 /* Card Stack Controller Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Stack Controller Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942DA7C14DED00C000ABD09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C942DA7E14DED00C000ABD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,6 +71,7 @@
 				C942DA7D14DED00C000ABD09 /* UIKit.framework in Frameworks */,
 				C942DA7F14DED00C000ABD09 /* Foundation.framework in Frameworks */,
 				C942DA8114DED00C000ABD09 /* CoreGraphics.framework in Frameworks */,
+				C932855614DF153600DF5ACA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +82,8 @@
 				C942DA9514DED00C000ABD09 /* SenTestingKit.framework in Frameworks */,
 				C942DA9614DED00C000ABD09 /* UIKit.framework in Frameworks */,
 				C942DA9714DED00C000ABD09 /* Foundation.framework in Frameworks */,
+				C932855414DF151B00DF5ACA /* CoreGraphics.framework in Frameworks */,
+				C932855714DF155100DF5ACA /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +128,7 @@
 				C942DA7C14DED00C000ABD09 /* UIKit.framework */,
 				C942DA7E14DED00C000ABD09 /* Foundation.framework */,
 				C942DA8014DED00C000ABD09 /* CoreGraphics.framework */,
+				C932855514DF153600DF5ACA /* QuartzCore.framework */,
 				C942DA9414DED00C000ABD09 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
