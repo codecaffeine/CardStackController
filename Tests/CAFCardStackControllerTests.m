@@ -15,9 +15,11 @@
 - (void)testCardStackControllerInitializesEmptyArray
 {
 	CAFCardStackController *cardStackController = [[CAFCardStackController alloc] init];
-	STAssertNotNil(cardStackController.cardViewControllers, 
-				   @"%@: cardViewControllers property shouldn't be nil, but it is", 
-				   NSStringFromClass([self class]));
+	STAssertNotNil(cardStackController.cardViewControllers, @"is nil");
+	STAssertTrue([cardStackController.cardViewControllers count] == 0, 
+				 @"%@: cardViewControllers array should have no objects but has %d", 
+				 NSStringFromClass([self class]), 
+				 [cardStackController.cardViewControllers count]);
 
 }
 
@@ -27,9 +29,14 @@
 	CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
 	[cardStackController addCardViewController:randomColorViewController];
 	STAssertTrue([cardStackController.cardViewControllers count] == 1, 
-				 @"%@: should have one object, but has %d", 
-				 NSStringFromClass([self class]), 
+				 @"contains %d objects", 
 				 [cardStackController.cardViewControllers count]);
+	UIViewController *viewController = [cardStackController.cardViewControllers objectAtIndex:0];
+	STAssertEqualObjects(randomColorViewController, 
+						 viewController, 
+						 @"%@ differs from %@", 
+						 randomColorViewController, 
+						 viewController);
 }
 
 @end
