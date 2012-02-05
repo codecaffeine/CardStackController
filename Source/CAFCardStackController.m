@@ -7,10 +7,8 @@
 //
 
 #import "CAFCardStackController.h"
+#import "UIView+ImageExtensions.h"
 
-@interface CAFCardStackController ()
-
-@end
 
 @implementation CAFCardStackController
 
@@ -55,14 +53,24 @@
 #pragma mark - Instance Methods
 - (void)addCardViewController:(UIViewController *)viewController
 {
-	[self addChildViewController:viewController];
-	
 	UIView *addedView = viewController.view;
-	[self.view addSubview:addedView];
 	addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	addedView.frame = self.view.bounds;
-		
-	[viewController didMoveToParentViewController:self];
+	addedView.frame = CGRectMake(0.0, 0.0, 768.0, 1004.0);
+	
+	UIImage *viewImage = [addedView caf_imageRepresentation];
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:viewImage];
+	imageView.contentMode = UIViewContentModeScaleAspectFit;
+	imageView.frame = CGRectMake(0.0, 0.0, 384.0, 502.0);
+	[self.view addSubview:imageView];
+	
+//	[self addChildViewController:viewController];
+//	
+//	UIView *addedView = viewController.view;
+//	[self.view addSubview:addedView];
+//	addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//	addedView.frame = self.view.bounds;
+//		
+//	[viewController didMoveToParentViewController:self];
 }
 
 
