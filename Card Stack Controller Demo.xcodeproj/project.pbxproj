@@ -126,9 +126,9 @@
 		C942DA8214DED00C000ABD09 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C942DA8314DED00C000ABD09 /* Supporting Files */,
 				C942DA8B14DED00C000ABD09 /* CAFAppDelegate.h */,
 				C942DA8C14DED00C000ABD09 /* CAFAppDelegate.m */,
-				C942DA8314DED00C000ABD09 /* Supporting Files */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -147,9 +147,9 @@
 		C942DA9A14DED00C000ABD09 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				C942DA9B14DED00C000ABD09 /* Supporting Files */,
 				C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */,
 				C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */,
-				C942DA9B14DED00C000ABD09 /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
