@@ -35,18 +35,19 @@
 		C942DA7C14DED00C000ABD09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C942DA7E14DED00C000ABD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C942DA8014DED00C000ABD09 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C942DA8414DED00C000ABD09 /* Card Stack Controller Demo-Info.plist */ = {isa = PBXFileReference; path = "Card Stack Controller Demo-Info.plist"; sourceTree = "<group>"; };
+		C942DA8414DED00C000ABD09 /* Card Stack Controller Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card Stack Controller Demo-Info.plist"; sourceTree = "<group>"; };
 		C942DA8614DED00C000ABD09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C942DA8814DED00C000ABD09 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C942DA8A14DED00C000ABD09 /* Card Stack Controller Demo-Prefix.pch */ = {isa = PBXFileReference; path = "Card Stack Controller Demo-Prefix.pch"; sourceTree = "<group>"; };
-		C942DA8B14DED00C000ABD09 /* CAFAppDelegate.h */ = {isa = PBXFileReference; path = CAFAppDelegate.h; sourceTree = "<group>"; };
+		C942DA8A14DED00C000ABD09 /* Card Stack Controller Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Card Stack Controller Demo-Prefix.pch"; sourceTree = "<group>"; };
+		C942DA8B14DED00C000ABD09 /* CAFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAFAppDelegate.h; sourceTree = "<group>"; };
 		C942DA8C14DED00C000ABD09 /* CAFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFAppDelegate.m; sourceTree = "<group>"; };
 		C942DA9314DED00C000ABD09 /* Card Stack Controller DemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Card Stack Controller DemoTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942DA9414DED00C000ABD09 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		C942DA9C14DED00C000ABD09 /* Card Stack Controller DemoTests-Info.plist */ = {isa = PBXFileReference; path = "Card Stack Controller DemoTests-Info.plist"; sourceTree = "<group>"; };
+		C942DA9C14DED00C000ABD09 /* Card Stack Controller DemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Card Stack Controller DemoTests-Info.plist"; sourceTree = "<group>"; };
 		C942DA9E14DED00C000ABD09 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */ = {isa = PBXFileReference; path = Card_Stack_Controller_DemoTests.h; sourceTree = "<group>"; };
+		C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Card_Stack_Controller_DemoTests.h; sourceTree = "<group>"; };
 		C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Card_Stack_Controller_DemoTests.m; sourceTree = "<group>"; };
+		C942DAAB14DED125000ABD09 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +77,9 @@
 		C942DA6D14DED00B000ABD09 = {
 			isa = PBXGroup;
 			children = (
-				C942DA8214DED00C000ABD09 /* Card Stack Controller Demo */,
-				C942DA9A14DED00C000ABD09 /* Card Stack Controller DemoTests */,
+				C942DAAB14DED125000ABD09 /* LICENSE.txt */,
+				C942DA8214DED00C000ABD09 /* App */,
+				C942DA9A14DED00C000ABD09 /* Tests */,
 				C942DA7B14DED00C000ABD09 /* Frameworks */,
 				C942DA7914DED00C000ABD09 /* Products */,
 			);
@@ -103,14 +105,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C942DA8214DED00C000ABD09 /* Card Stack Controller Demo */ = {
+		C942DA8214DED00C000ABD09 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				C942DA8B14DED00C000ABD09 /* CAFAppDelegate.h */,
 				C942DA8C14DED00C000ABD09 /* CAFAppDelegate.m */,
 				C942DA8314DED00C000ABD09 /* Supporting Files */,
 			);
-			path = "Card Stack Controller Demo";
+			path = App;
 			sourceTree = "<group>";
 		};
 		C942DA8314DED00C000ABD09 /* Supporting Files */ = {
@@ -124,14 +126,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C942DA9A14DED00C000ABD09 /* Card Stack Controller DemoTests */ = {
+		C942DA9A14DED00C000ABD09 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C942DAA014DED00C000ABD09 /* Card_Stack_Controller_DemoTests.h */,
 				C942DAA114DED00C000ABD09 /* Card_Stack_Controller_DemoTests.m */,
 				C942DA9B14DED00C000ABD09 /* Supporting Files */,
 			);
-			path = "Card Stack Controller DemoTests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		C942DA9B14DED00C000ABD09 /* Supporting Files */ = {
@@ -344,8 +346,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Card Stack Controller Demo/Card Stack Controller Demo-Prefix.pch";
-				INFOPLIST_FILE = "Card Stack Controller Demo/Card Stack Controller Demo-Info.plist";
+				GCC_PREFIX_HEADER = "App/Card Stack Controller Demo-Prefix.pch";
+				INFOPLIST_FILE = "App/Card Stack Controller Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -355,8 +357,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Card Stack Controller Demo/Card Stack Controller Demo-Prefix.pch";
-				INFOPLIST_FILE = "Card Stack Controller Demo/Card Stack Controller Demo-Info.plist";
+				GCC_PREFIX_HEADER = "App/Card Stack Controller Demo-Prefix.pch";
+				INFOPLIST_FILE = "App/Card Stack Controller Demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
