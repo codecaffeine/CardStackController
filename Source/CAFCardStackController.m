@@ -57,6 +57,9 @@
 {
 	[self addChildViewController:viewController];
 	
+	[self.view addSubview:viewController.view];
+	viewController.view.frame = self.view.bounds;
+	
 	[viewController didMoveToParentViewController:self];
 }
 
