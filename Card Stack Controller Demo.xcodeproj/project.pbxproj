@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		C932854014DEE13700DF5ACA /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		C932854914DEE32B00DF5ACA /* CAFCardStackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCardStackController.h; sourceTree = "<group>"; };
-		C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackController.m; sourceTree = "<group>"; };
+		C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CAFCardStackController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFCardStackController.xib; sourceTree = "<group>"; };
 		C932854E14DF049300DF5ACA /* CAFCardStackControllerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCardStackControllerTests.h; sourceTree = "<group>"; };
 		C932854F14DF049300DF5ACA /* CAFCardStackControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackControllerTests.m; sourceTree = "<group>"; };
