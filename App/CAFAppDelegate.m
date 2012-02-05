@@ -21,7 +21,8 @@
 	self.window.rootViewController= cardStackController;
 	
 	CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
-	[cardStackController addCardViewController:randomColorViewController];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:randomColorViewController];
+	[cardStackController addCardViewController:navController];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
