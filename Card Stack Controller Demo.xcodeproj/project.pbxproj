@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C932854C14DEE32B00DF5ACA /* CAFCardStackController.m in Sources */ = {isa = PBXBuildFile; fileRef = C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */; };
+		C932854D14DEE32B00DF5ACA /* CAFCardStackController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */; };
 		C942DA7D14DED00C000ABD09 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7C14DED00C000ABD09 /* UIKit.framework */; };
 		C942DA7F14DED00C000ABD09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA7E14DED00C000ABD09 /* Foundation.framework */; };
 		C942DA8114DED00C000ABD09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C942DA8014DED00C000ABD09 /* CoreGraphics.framework */; };
@@ -32,6 +34,9 @@
 
 /* Begin PBXFileReference section */
 		C932854014DEE13700DF5ACA /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		C932854914DEE32B00DF5ACA /* CAFCardStackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCardStackController.h; sourceTree = "<group>"; };
+		C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCardStackController.m; sourceTree = "<group>"; };
+		C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFCardStackController.xib; sourceTree = "<group>"; };
 		C942DA7814DED00C000ABD09 /* Card Stack Controller Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Stack Controller Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942DA7C14DED00C000ABD09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C942DA7E14DED00C000ABD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -75,11 +80,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C932854814DEE32B00DF5ACA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C932854914DEE32B00DF5ACA /* CAFCardStackController.h */,
+				C932854A14DEE32B00DF5ACA /* CAFCardStackController.m */,
+				C932854B14DEE32B00DF5ACA /* CAFCardStackController.xib */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		C942DA6D14DED00B000ABD09 = {
 			isa = PBXGroup;
 			children = (
 				C942DAAB14DED125000ABD09 /* LICENSE.txt */,
 				C932854014DEE13700DF5ACA /* README.mdown */,
+				C932854814DEE32B00DF5ACA /* Source */,
 				C942DA8214DED00C000ABD09 /* App */,
 				C942DA9A14DED00C000ABD09 /* Tests */,
 				C942DA7B14DED00C000ABD09 /* Frameworks */,
@@ -220,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C942DA8714DED00C000ABD09 /* InfoPlist.strings in Resources */,
+				C932854D14DEE32B00DF5ACA /* CAFCardStackController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +273,7 @@
 			files = (
 				C942DA8914DED00C000ABD09 /* main.m in Sources */,
 				C942DA8D14DED00C000ABD09 /* CAFAppDelegate.m in Sources */,
+				C932854C14DEE32B00DF5ACA /* CAFCardStackController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +437,7 @@
 				C942DAA714DED00C000ABD09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C942DAA814DED00C000ABD09 /* Build configuration list for PBXNativeTarget "Card Stack Controller DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +446,7 @@
 				C942DAAA14DED00C000ABD09 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
