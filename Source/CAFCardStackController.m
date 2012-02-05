@@ -57,10 +57,11 @@
 {
 	[self addChildViewController:viewController];
 	
-	[self.view addSubview:viewController.view];
-	viewController.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-	viewController.view.frame = self.view.bounds;
-	
+	UIView *addedView = viewController.view;
+	[self.view addSubview:addedView];
+	addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+	addedView.frame = self.view.bounds;
+		
 	[viewController didMoveToParentViewController:self];
 }
 
