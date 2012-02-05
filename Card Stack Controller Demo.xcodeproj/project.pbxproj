@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C932854014DEE13700DF5ACA /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		C942DA7814DED00C000ABD09 /* Card Stack Controller Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Stack Controller Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C942DA7C14DED00C000ABD09 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C942DA7E14DED00C000ABD09 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				C942DAAB14DED125000ABD09 /* LICENSE.txt */,
+				C932854014DEE13700DF5ACA /* README.mdown */,
 				C942DA8214DED00C000ABD09 /* App */,
 				C942DA9A14DED00C000ABD09 /* Tests */,
 				C942DA7B14DED00C000ABD09 /* Frameworks */,

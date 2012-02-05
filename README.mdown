@@ -1,0 +1,24 @@
+# Card Stack View Controller
+## About
+Inspired by WebOS's app switcher
+
+## API
+CAFCardStackController - the container view controller to display other view controllers in WebOS fasion
+* Methods
+	- (void)addCardViewController:(UIViewController *)viewController
+		* viewController
+			* If nil, otherwise noop. 
+			* Assumes full screen display.
+			* When method completes, added to cardViewControllers array
+	- (void)focusCardViewController:(UIViewController *)viewController
+		* viewController
+			* Must already be in cardViewControllers array, otherwise noop
+	- (void)showAllCardViewControllers
+		* Shows card selector screen
+	- (void)removeCardViewController:(UIViewController *)viewController
+		* viewController
+			* Must already be in cardViewControllers array, otherwise noop
+			* When method completes, removed from cardViewControllers array
+
+* Properties
+	* NSArray *cardViewControllers
