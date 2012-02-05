@@ -8,6 +8,7 @@
 
 #import "CAFAppDelegate.h"
 #import "CAFCardStackController.h"
+#import "CAFRandomColorViewController.h"
 
 @implementation CAFAppDelegate
 @synthesize window = _window;
@@ -18,6 +19,9 @@
 	
 	CAFCardStackController *cardStackController = [[CAFCardStackController alloc] init];
 	self.window.rootViewController= cardStackController;
+	
+	CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
+	[cardStackController addCardViewController:randomColorViewController];
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
