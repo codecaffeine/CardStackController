@@ -7,7 +7,6 @@
 //
 
 #import "CAFCardStackController.h"
-#import "UIView+ImageExtensions.h"
 
 
 const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
@@ -72,28 +71,6 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 #pragma mark - Instance Methods
 - (void)addCardViewController:(UIViewController *)viewController
 {
-//	if (viewController 
-//		&& ![_cardViewControllers containsObject:viewController]) {
-//		
-//		[_cardViewControllers addObject:viewController];
-//		[_viewControllerDictionary setObject:viewController 
-//									  forKey:uniqueString];
-//		
-//		
-//		UIView *addedView = viewController.view;
-//		addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//		addedView.frame = self.view.bounds;
-//		UIImage *viewImage = [addedView caf_imageRepresentation];
-//		UIImageView *imageView = [[UIImageView alloc] initWithImage:viewImage];
-//		imageView.contentMode = UIViewContentModeScaleAspectFit;
-//		CGFloat scale = 0.45;
-//		imageView.frame = CGRectMake(60.0, 
-//									 60.0, 
-//									 roundf(addedView.frame.size.width * scale), 
-//									 roundf(addedView.frame.size.height * scale));
-//		[self.view addSubview:imageView];
-//	}
-	
 	if (viewController 
 		&& ![self.childViewControllers containsObject:viewController]) {
 		CFUUIDRef uniqueID = CFUUIDCreate(kCFAllocatorDefault);
