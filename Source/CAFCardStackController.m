@@ -21,6 +21,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 - (void)addGestureRecognizersToView:(UIView *)view;
 - (UIViewController *)childViewControllerForView:(UIView *)view;
 - (IBAction)addButtonPressed:(id)sender;
+- (void)updateTitle;
 @end
 
 
@@ -48,7 +49,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.titleBarButtonItem.title = self.title;
+	[self updateTitle];
 }
 
 
@@ -108,6 +109,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 						 } 
 						 completion:^(BOOL finished) {
 							 [viewController didMoveToParentViewController:self];
+							 [self updateTitle];
 						 }];
 	}
 }
@@ -157,6 +159,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 	
 	[viewController willMoveToParentViewController:nil];
 	[viewController removeFromParentViewController];
+	[self updateTitle];
 }
 
 
@@ -243,6 +246,13 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 	if (self.addButtonCallback) {
 		self.addButtonCallback();
 	}
+}
+
+
+- (void)updateTitle
+{
+	self.title = [NSString stringWithFormat:@"View Controllers: %d", [self.childViewControllers count]];
+	self.titleBarButtonItem.title = self.title;
 }
 
 @end

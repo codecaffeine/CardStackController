@@ -25,7 +25,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	self.cardStackController = [[CAFCardStackController alloc] init];
-	self.cardStackController.title = @"View Controllers";
 	__weak CAFAppDelegate *appDelegate = self;
 	self.cardStackController.addButtonCallback = ^{
 		CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
