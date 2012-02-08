@@ -14,6 +14,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 @interface CAFCardStackController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) UIViewController *focusedViewController;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
 - (IBAction)addButtonPressed:(id)sender;
@@ -24,9 +25,10 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 	NSMutableDictionary *_viewControllerIDMap;
 	NSMutableDictionary *_viewIDMap;
 }
-@synthesize titleBarButtonItem = _titleBarButtonItem;
-@synthesize addButtonCallback;
-@synthesize toolbar = _toolbar;
+@synthesize titleBarButtonItem		= _titleBarButtonItem;
+@synthesize addButtonCallback		= _addButtonCallback;
+@synthesize toolbar					= _toolbar;
+@synthesize focusedViewController	= _focusedViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -115,22 +117,27 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 
 - (void)focusCardViewController:(UIViewController *)viewController
 {
-	UIView *view = viewController.view;
-	NSArray *gestureRecognizers = view.gestureRecognizers;
-	for (UIGestureRecognizer *gestureRecognizer in gestureRecognizers) {
-		[view removeGestureRecognizer:gestureRecognizer];
+	if ([self.childViewControllers containsObject:viewController]) {
+		self.focusedViewController = viewController;
+		
+		UIView *view = viewController.view;
+		NSArray *gestureRecognizers = view.gestureRecognizers;
+		for (UIGestureRecognizer *gestureRecognizer in gestureRecognizers) {
+			[view removeGestureRecognizer:gestureRecognizer];
+		}
+		
+		[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
+						 animations:^{
+							 view.transform  = CGAffineTransformIdentity;
+							 view.frame = self.view.bounds;
+						 }];
 	}
-	[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
-					 animations:^{
-						 view.transform  = CGAffineTransformIdentity;
-						 view.frame = self.view.bounds;
-					 }];
 }
 
 
 - (void)showAllCardViewControllers
 {
-	
+	self.focusedViewController = nil;
 }
 
 
