@@ -93,7 +93,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 		addedView.frame = self.view.bounds;
 		addedView.alpha = 0.0f;
 		addedView.transform  = CGAffineTransformMakeScale(0.45f, 0.45f);
-		[self.view addSubview:addedView];
+		[self.view insertSubview:addedView belowSubview:self.toolbar];
 		[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
 						 animations:^{
 							 addedView.alpha = 1.0f;
@@ -144,18 +144,19 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture
 {
 	CGPoint translate = [panGesture translationInView:self.view];
-
-	if (panGesture.state == UIGestureRecognizerStateBegan || panGesture.state == UIGestureRecognizerStateChanged) {
-		UIView *view = panGesture.view;
-		CGPoint translation = [panGesture translationInView:view.superview];
-		[view setCenter:CGPointMake(view.center.x + translation.x, view.center.y + translation.y)];
-		[panGesture setTranslation:CGPointZero inView:view.superview];
+	
+	UIView *currentView = panGesture.view;
+	if (panGesture.state == UIGestureRecognizerStateBegan) {
+		[self.view insertSubview:currentView belowSubview:self.toolbar];
+	} else if (panGesture.state == UIGestureRecognizerStateChanged) {
+		CGPoint translation = [panGesture translationInView:currentView.superview];
+		[currentView setCenter:CGPointMake(currentView.center.x + translation.x, currentView.center.y + translation.y)];
+		[panGesture setTranslation:CGPointZero inView:currentView.superview];
 	} else if (panGesture.state == UIGestureRecognizerStateEnded) {
 		CGRect newFrame = panGesture.view.frame;
 		newFrame.origin.x += translate.x;
 		newFrame.origin.y += translate.y;
-		
-		panGesture.view.frame = newFrame;
+		currentView.frame = newFrame;
 	}
 }
 
@@ -164,6 +165,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 {
 	if (tapGesture.state == UIGestureRecognizerStateEnded) {
 		UIView *currentView = tapGesture.view;
+		[self.view insertSubview:currentView aboveSubview:self.toolbar];
 		NSArray *viewIDs = [_viewIDMap allKeysForObject:currentView];
 		if ([viewIDs count] == 1) {
 			NSString *viewID = [viewIDs lastObject];
