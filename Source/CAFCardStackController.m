@@ -19,6 +19,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
 - (void)addGestureRecognizersToView:(UIView *)view;
+- (UIViewController *)childViewControllerForView:(UIView *)view;
 - (IBAction)addButtonPressed:(id)sender;
 @end
 
@@ -151,27 +152,51 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 
 - (void)removeCardViewController:(UIViewController *)viewController
 {
+	UIView *currentView = viewController.view;
+	[currentView removeFromSuperview];
 	
+	[viewController willMoveToParentViewController:nil];
+	[viewController removeFromParentViewController];
 }
 
 
 #pragma mark - Private Methods
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture
 {
-	CGPoint translate = [panGesture translationInView:self.view];
-	
 	UIView *currentView = panGesture.view;
+	CGPoint translation = [panGesture translationInView:currentView.superview];
+	
 	if (panGesture.state == UIGestureRecognizerStateBegan) {
 		[self.view insertSubview:currentView belowSubview:self.toolbar];
 	} else if (panGesture.state == UIGestureRecognizerStateChanged) {
-		CGPoint translation = [panGesture translationInView:currentView.superview];
 		[currentView setCenter:CGPointMake(currentView.center.x + translation.x, currentView.center.y + translation.y)];
 		[panGesture setTranslation:CGPointZero inView:currentView.superview];
 	} else if (panGesture.state == UIGestureRecognizerStateEnded) {
-		CGRect newFrame = panGesture.view.frame;
-		newFrame.origin.x += translate.x;
-		newFrame.origin.y += translate.y;
-		currentView.frame = newFrame;
+		CGPoint velocity = [panGesture velocityInView:currentView.superview];
+		NSLog(@"velocity: %@", NSStringFromCGPoint(velocity));
+		
+		CGPoint finalTranslation = CGPointMake(velocity.x * CAFCardStackControllerDefaultAnimationDuration, 
+											   velocity.y * CAFCardStackControllerDefaultAnimationDuration);
+		NSLog(@"finalTranslation: %@", NSStringFromCGPoint(finalTranslation));
+		
+		[UIView animateWithDuration:0.74f 
+							  delay:0.0f 
+							options:UIViewAnimationOptionCurveEaseOut 
+						 animations:^{
+							 CGRect newFrame = panGesture.view.frame;
+							 newFrame.origin.x += finalTranslation.x;
+							 newFrame.origin.y += finalTranslation.y;
+							 currentView.frame = newFrame;
+						 } 
+						 completion:^(BOOL finished) {
+							 BOOL intersection = CGRectIntersectsRect(currentView.superview.frame, currentView.frame);
+							 if (!intersection) {
+								 UIViewController *viewController = [self childViewControllerForView:currentView];
+								 if (viewController) {
+									 [self removeCardViewController:viewController];
+								 }
+							 }
+						 }];
 	}
 }
 
@@ -181,11 +206,9 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 	if (tapGesture.state == UIGestureRecognizerStateEnded) {
 		UIView *currentView = tapGesture.view;
 		[self.view insertSubview:currentView aboveSubview:self.toolbar];
-		NSArray *viewIDs = [_viewIDMap allKeysForObject:currentView];
-		if ([viewIDs count] == 1) {
-			NSString *viewID = [viewIDs lastObject];
-			UIViewController *currentViewController = [_viewControllerIDMap objectForKey:viewID];
-			[self focusCardViewController:currentViewController];
+		UIViewController *viewController = [self childViewControllerForView:currentView];
+		if (viewController) {
+			[self focusCardViewController:viewController];
 		}
 	}
 }
@@ -200,6 +223,18 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self 
 																						   action:@selector(didReceiveTapGesture:)];
 	[view addGestureRecognizer:tapGestureRecognizer];
+}
+
+
+- (UIViewController *)childViewControllerForView:(UIView *)view
+{
+	UIViewController *childViewController = nil;
+	NSArray *viewIDs = [_viewIDMap allKeysForObject:view];
+	if ([viewIDs count] == 1) {
+		NSString *viewID = [viewIDs lastObject];
+		childViewController = [_viewControllerIDMap objectForKey:viewID];
+	}
+	return childViewController;
 }
 
 
