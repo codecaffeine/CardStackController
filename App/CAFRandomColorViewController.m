@@ -10,9 +10,15 @@
 
 #define ARC4RANDOM_MAX      0x100000000
 
-@implementation CAFRandomColorViewController
 
-#pragma mark - View lifecycle
+@interface CAFRandomColorViewController ()
+- (void)doneButtonPressed:(id)sender;
+@end
+
+
+@implementation CAFRandomColorViewController
+@synthesize doneButtonCallback;
+
 - (void)loadView
 {
 	CGFloat red = ((float)arc4random() / ARC4RANDOM_MAX) * 1.0f;
@@ -26,12 +32,25 @@
 	UIView *aView = [[UIView alloc] init];
 	self.view = aView;
 	self.view.backgroundColor = color;
+	
+	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
+																				target:self 
+																				action:@selector(doneButtonPressed:)];
+	self.navigationItem.leftBarButtonItem = doneButton;
 }
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+
+- (void)doneButtonPressed:(id)sender
+{
+	if (self.doneButtonCallback) {
+		self.doneButtonCallback();
+	}
 }
 
 
