@@ -10,6 +10,7 @@
 
 
 const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
+const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 
 @interface CAFCardStackController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
@@ -94,7 +95,8 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 		addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		addedView.frame = self.view.bounds;
 		addedView.alpha = 0.0f;
-		addedView.transform  = CGAffineTransformMakeScale(0.45f, 0.45f);
+		addedView.transform  = CGAffineTransformMakeScale(CAFCardStackControllerDefaultMinimizedScale, 
+														  CAFCardStackControllerDefaultMinimizedScale);
 		[self.view insertSubview:addedView belowSubview:self.toolbar];
 		[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
 						 animations:^{
@@ -137,7 +139,17 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 
 - (void)showAllCardViewControllers
 {
-	self.focusedViewController = nil;
+	UIView *currentView = self.focusedViewController.view;
+	[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
+					 animations:^{
+						 currentView.transform  = CGAffineTransformMakeScale(CAFCardStackControllerDefaultMinimizedScale, 
+																		   CAFCardStackControllerDefaultMinimizedScale);
+
+					 } 
+					 completion:^(BOOL finished) {
+						 [self.view insertSubview:currentView belowSubview:self.toolbar];
+						 self.focusedViewController = nil;
+					 }];
 }
 
 
