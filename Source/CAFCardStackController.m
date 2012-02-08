@@ -13,8 +13,10 @@
 const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 
 @interface CAFCardStackController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
+- (IBAction)addButtonPressed:(id)sender;
 @end
 
 
@@ -22,6 +24,8 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 	NSMutableDictionary *_viewControllerIDMap;
 	NSMutableDictionary *_viewIDMap;
 }
+@synthesize titleBarButtonItem = _titleBarButtonItem;
+@synthesize addButtonCallback;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,12 +42,13 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.titleBarButtonItem.title = self.title;
 }
 
 
 - (void)viewDidUnload
 {
+	[self setTitleBarButtonItem:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -94,9 +99,11 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 		CFUUIDRef uniqueID = CFUUIDCreate(kCFAllocatorDefault);
 		CFStringRef uniqueStringRef = CFUUIDCreateString(kCFAllocatorDefault, 
 														 uniqueID);
-		NSString *uniqueString = (__bridge NSString *)uniqueStringRef;
-		
+		CFRelease(uniqueID);
+		NSString *uniqueString = (__bridge NSString *)uniqueStringRef;		
 		[_viewControllerIDMap setObject:viewController forKey:uniqueString];
+		CFRelease(uniqueStringRef);
+
 		[self addChildViewController:viewController];
 		
 		UIView *addedView = viewController.view;
@@ -183,6 +190,14 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 			UIViewController *currentViewController = [_viewControllerIDMap objectForKey:viewID];
 			[self focusCardViewController:currentViewController];
 		}
+	}
+}
+
+
+- (IBAction)addButtonPressed:(id)sender
+{
+	if (self.addButtonCallback) {
+		self.addButtonCallback();
 	}
 }
 
