@@ -13,6 +13,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 
 @interface CAFCardStackController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
 - (IBAction)addButtonPressed:(id)sender;
@@ -25,6 +26,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 }
 @synthesize titleBarButtonItem = _titleBarButtonItem;
 @synthesize addButtonCallback;
+@synthesize toolbar = _toolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +50,7 @@ const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
 - (void)viewDidUnload
 {
 	[self setTitleBarButtonItem:nil];
+	[self setToolbar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
