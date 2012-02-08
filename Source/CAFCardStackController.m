@@ -18,6 +18,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 @property (strong, nonatomic) UIViewController *focusedViewController;
 - (void)didReceivePanGesture:(UIPanGestureRecognizer *)panGesture;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
+- (void)addGestureRecognizersToView:(UIView *)view;
 - (IBAction)addButtonPressed:(id)sender;
 @end
 
@@ -98,6 +99,8 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 		addedView.transform  = CGAffineTransformMakeScale(CAFCardStackControllerDefaultMinimizedScale, 
 														  CAFCardStackControllerDefaultMinimizedScale);
 		[self.view insertSubview:addedView belowSubview:self.toolbar];
+		[self addGestureRecognizersToView:addedView];
+		
 		[UIView animateWithDuration:CAFCardStackControllerDefaultAnimationDuration 
 						 animations:^{
 							 addedView.alpha = 1.0f;
@@ -105,14 +108,6 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 						 completion:^(BOOL finished) {
 							 [viewController didMoveToParentViewController:self];
 						 }];
-		
-		UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self 
-																							   action:@selector(didReceivePanGesture:)];
-		[addedView addGestureRecognizer:panGestureRecognizer];
-		
-		UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self 
-																							   action:@selector(didReceiveTapGesture:)];
-		[addedView addGestureRecognizer:tapGestureRecognizer];
 	}
 }
 
@@ -148,6 +143,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 					 } 
 					 completion:^(BOOL finished) {
 						 [self.view insertSubview:currentView belowSubview:self.toolbar];
+						 [self addGestureRecognizersToView:currentView];
 						 self.focusedViewController = nil;
 					 }];
 }
@@ -192,6 +188,18 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 			[self focusCardViewController:currentViewController];
 		}
 	}
+}
+
+
+- (void)addGestureRecognizersToView:(UIView *)view
+{
+	UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self 
+																						   action:@selector(didReceivePanGesture:)];
+	[view addGestureRecognizer:panGestureRecognizer];
+
+	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self 
+																						   action:@selector(didReceiveTapGesture:)];
+	[view addGestureRecognizer:tapGestureRecognizer];
 }
 
 
