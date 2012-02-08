@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CAFRandomColorViewController : UIViewController
-@property (strong, nonatomic) void(^doneButtonCallback)();
 @end
 

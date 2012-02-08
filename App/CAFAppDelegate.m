@@ -11,28 +11,41 @@
 #import "CAFRandomColorViewController.h"
 
 
+@interface CAFAppDelegate ()
+@property (strong, nonatomic) CAFCardStackController *cardStackController;
+- (void)doneButtonPressed:(id)sender;
+@end
+
 @implementation CAFAppDelegate
 @synthesize window				= _window;
+@synthesize cardStackController	= _cardStackController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	CAFCardStackController *_cardStackController = [[CAFCardStackController alloc] init];
-	__weak CAFCardStackController *cardStackController = _cardStackController;
-	cardStackController.title = @"View Controllers";
-	cardStackController.addButtonCallback = ^{
+	self.cardStackController = [[CAFCardStackController alloc] init];
+	self.cardStackController.title = @"View Controllers";
+	__weak CAFAppDelegate *appDelegate = self;
+	self.cardStackController.addButtonCallback = ^{
 		CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
-		randomColorViewController.doneButtonCallback = ^{
-			[cardStackController showAllCardViewControllers];
-		};
+		UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
+																					target:appDelegate 
+																					action:@selector(doneButtonPressed:)];
+		randomColorViewController.navigationItem.leftBarButtonItem = doneButton;
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:randomColorViewController];
-		[cardStackController addCardViewController:navController];
+		[self.cardStackController addCardViewController:navController];
 	};
 	
-	self.window.rootViewController= cardStackController;
+	self.window.rootViewController = self.cardStackController;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+
+- (void)doneButtonPressed:(id)sender
+{
+	[self.cardStackController showAllCardViewControllers];
 }
 
 

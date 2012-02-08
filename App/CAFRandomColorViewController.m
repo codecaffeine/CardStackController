@@ -11,13 +11,12 @@
 #define ARC4RANDOM_MAX      0x100000000
 
 
-@interface CAFRandomColorViewController ()
-- (void)doneButtonPressed:(id)sender;
-@end
-
-
 @implementation CAFRandomColorViewController
-@synthesize doneButtonCallback;
+
+- (void)dealloc
+{
+	NSLog(@"%@ is gone", self);
+}
 
 - (void)loadView
 {
@@ -32,11 +31,6 @@
 	UIView *aView = [[UIView alloc] init];
 	self.view = aView;
 	self.view.backgroundColor = color;
-	
-	UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
-																				target:self 
-																				action:@selector(doneButtonPressed:)];
-	self.navigationItem.leftBarButtonItem = doneButton;
 }
 
 
@@ -44,14 +38,5 @@
 {
     return YES;
 }
-
-
-- (void)doneButtonPressed:(id)sender
-{
-	if (self.doneButtonCallback) {
-		self.doneButtonCallback();
-	}
-}
-
 
 @end
