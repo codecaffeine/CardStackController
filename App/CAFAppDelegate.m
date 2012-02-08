@@ -23,6 +23,9 @@
 	cardStackController.title = @"View Controllers";
 	cardStackController.addButtonCallback = ^{
 		CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
+		randomColorViewController.doneButtonCallback = ^{
+			[cardStackController showAllCardViewControllers];
+		};
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:randomColorViewController];
 		[cardStackController addCardViewController:navController];
 	};
