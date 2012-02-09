@@ -7,6 +7,7 @@
 //
 
 #import "CAFCardStackController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 const CGFloat CAFCardStackControllerDefaultAnimationDuration = 0.3;
@@ -64,6 +65,29 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 }
 
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation 
+								duration:(NSTimeInterval)duration
+{
+	[super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	for (NSString *key in _viewIDMap) {
+		UIView *view = [_viewIDMap objectForKey:key ];
+		view.layer.shadowOpacity = 0.0f;
+	}
+
+}
+
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+	for (NSString *key in _viewIDMap) {
+		UIView *view = [_viewIDMap objectForKey:key ];
+		view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
+		view.layer.shadowOpacity = 0.75f;
+	}
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
@@ -100,6 +124,13 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 		addedView.alpha = 0.0f;
 		addedView.transform  = CGAffineTransformMakeScale(CAFCardStackControllerDefaultMinimizedScale, 
 														  CAFCardStackControllerDefaultMinimizedScale);
+		
+		addedView.layer.shadowOpacity = 0.75f;
+		addedView.layer.shadowRadius = 25.0f;
+		addedView.layer.shadowOffset = CGSizeZero;
+		addedView.layer.shadowColor = [UIColor blackColor].CGColor;
+		addedView.layer.shadowPath = [UIBezierPath bezierPathWithRect:addedView.bounds].CGPath;
+		
 		[self.view insertSubview:addedView belowSubview:self.toolbar];
 		[self addGestureRecognizersToView:addedView];
 		
