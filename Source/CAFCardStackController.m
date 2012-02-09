@@ -95,7 +95,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 		UIView *addedView = viewController.view;
 		[_viewIDMap setObject:addedView forKey:uniqueString];
 		
-		addedView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+		addedView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
 		addedView.frame = self.view.bounds;
 		addedView.alpha = 0.0f;
 		addedView.transform  = CGAffineTransformMakeScale(CAFCardStackControllerDefaultMinimizedScale, 
