@@ -13,11 +13,6 @@
 
 @implementation CAFRandomColorViewController
 
-- (void)dealloc
-{
-	NSLog(@"%@ is gone", self);
-}
-
 - (void)loadView
 {
 	CGFloat red = ((float)arc4random() / ARC4RANDOM_MAX) * 1.0f;

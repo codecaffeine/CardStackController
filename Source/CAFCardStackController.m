@@ -206,12 +206,9 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 		[currentView setCenter:CGPointMake(currentView.center.x + translation.x, currentView.center.y + translation.y)];
 		[panGesture setTranslation:CGPointZero inView:currentView.superview];
 	} else if (panGesture.state == UIGestureRecognizerStateEnded) {
-		CGPoint velocity = [panGesture velocityInView:currentView.superview];
-		NSLog(@"velocity: %@", NSStringFromCGPoint(velocity));
-		
+		CGPoint velocity = [panGesture velocityInView:currentView.superview];		
 		CGPoint finalTranslation = CGPointMake(velocity.x * CAFCardStackControllerDefaultAnimationDuration, 
 											   velocity.y * CAFCardStackControllerDefaultAnimationDuration);
-		NSLog(@"finalTranslation: %@", NSStringFromCGPoint(finalTranslation));
 		
 		[UIView animateWithDuration:0.74f 
 							  delay:0.0f 
