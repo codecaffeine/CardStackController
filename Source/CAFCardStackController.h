@@ -10,7 +10,7 @@
 
 @interface CAFCardStackController : UIViewController
 @property (readonly) NSArray *cardViewControllers;
-@property (strong, nonatomic) void(^addButtonCallback)();
+@property (copy, nonatomic) void(^addButtonCallback)();
 @property (readonly, strong, nonatomic) UIViewController *focusedViewController;
 - (void)addCardViewController:(UIViewController *)viewController;
 - (void)focusCardViewController:(UIViewController *)viewController;
