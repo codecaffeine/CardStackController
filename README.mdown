@@ -1,6 +1,9 @@
 # Card Stack View Controller
 ## About
-Inspired by WebOS's app switcher
+An example UIViewController container that allows you to view multilpe viewControllers at once by minimizing them all. You can move these minimized views around and swipe them off-screen to remove them. You can also tap on a minimized viewController to bring it to focus.
+
+## Requirements
+I've only tested this with Xcode 4.2+ so I don't know if it'll work < 4.2.
 
 ## API
 CAFCardStackController - the container view controller to display other view controllers in WebOS fasion
