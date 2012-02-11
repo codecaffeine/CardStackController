@@ -25,15 +25,16 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	self.cardStackController = [[CAFCardStackController alloc] init];
-	__weak CAFAppDelegate *appDelegate = self;
+	__weak CAFAppDelegate *weakSelf = self;
+	__weak CAFCardStackController *weakCardStackController = self.cardStackController;
 	self.cardStackController.addButtonCallback = ^{
 		CAFRandomColorViewController *randomColorViewController = [[CAFRandomColorViewController alloc] init];
 		UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone 
-																					target:appDelegate 
+																					target:weakSelf 
 																					action:@selector(doneButtonPressed:)];
 		randomColorViewController.navigationItem.leftBarButtonItem = doneButton;
 		UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:randomColorViewController];
-		[self.cardStackController addCardViewController:navController];
+		[weakCardStackController addCardViewController:navController];
 	};
 	
 	self.window.rootViewController = self.cardStackController;
