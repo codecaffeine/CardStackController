@@ -21,6 +21,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 - (void)didReceiveTapGesture:(UITapGestureRecognizer *)tapGesture;
 - (void)addGestureRecognizersToView:(UIView *)view;
 - (UIViewController *)childViewControllerForView:(UIView *)view;
+- (NSString *)viewIDForViewController:(UIViewController *)viewController;
 - (IBAction)addButtonPressed:(id)sender;
 - (void)updateTitle;
 @end
@@ -81,7 +82,7 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 {
 	[super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
 	for (NSString *key in _viewIDMap) {
-		UIView *view = [_viewIDMap objectForKey:key ];
+		UIView *view = [_viewIDMap objectForKey:key];
 		view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
 		view.layer.shadowOpacity = 0.75f;
 	}
@@ -188,6 +189,12 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 	UIView *currentView = viewController.view;
 	[currentView removeFromSuperview];
 	
+    NSString *viewID = [self viewIDForViewController:viewController];
+    if (viewID) {
+        [_viewControllerIDMap removeObjectForKey:viewID];
+        [_viewIDMap removeObjectForKey:viewID];
+    }
+    
 	[viewController willMoveToParentViewController:nil];
 	[viewController removeFromParentViewController];
 	[self updateTitle];
@@ -266,6 +273,17 @@ const CGFloat CAFCardStackControllerDefaultMinimizedScale = 0.45;
 		childViewController = [_viewControllerIDMap objectForKey:viewID];
 	}
 	return childViewController;
+}
+
+
+- (NSString *)viewIDForViewController:(UIViewController *)viewController
+{
+    NSString *viewID = nil;
+    NSArray *viewIDs = [_viewIDMap allKeysForObject:viewController.view];
+	if ([viewIDs count] == 1) {
+		viewID = [viewIDs lastObject];
+	}
+    return viewID;
 }
 
 
