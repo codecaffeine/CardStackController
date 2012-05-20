@@ -29,3 +29,4 @@ CAFCardStackController - the container view controller to display other view con
 
 ## Updates
 2/11/2012: Fixed an issue where the app would crash when built with Xcode 4.2.
+5/20/2012: Fixed a memry leak when on removing a viewControler
